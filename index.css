@@ -20,7 +20,7 @@ body{
     top:0;
     left: 0;
     z-index: 100;
-    background: transparent;
+    background: #051129;
      padding: 20px 10%;
 }
 
@@ -39,11 +39,14 @@ body{
 .navbar a{
     text-decoration: none;
     font-size: 20px;
-    font-weight: 500;
+    font-weight: 600;
     margin-left: 35px;
     display:inline-block;
     color: #ccc;
     transition:.3s ;
+    opacity: 0;
+    animation: slideTop .5s ease forwards;
+    animation-delay: calc(.2s * var(--i));
 
 
     &:hover{
@@ -73,17 +76,27 @@ body{
     & h3{
         font-size: 32px;
         font-weight: 700;
+        opacity: 0;
+        animation: slideBottom 1s ease forwards;
+        animation-delay: .7s;
         
     }
     & h1{
         font-size: 56px;
         font-weight: 700;
         margin: -3px 0;
+        opacity: 0;
+        animation: slideRight 1s ease forwards;
+        animation-delay: 1s;
       
     }
     & p{
         /* color: #0ef; */
         font-size: 20px;
+        opacity: 0;
+        animation: slideLeft 1s ease forwards;
+        animation-delay: 1s;
+
     }
     & span{
         color: #0ef;
@@ -111,6 +124,8 @@ body{
     color: #0ef;
     text-decoration: none;
     margin: 30px 15px 30px 0;
+    animation: slideLeft 1s ease forwards;
+        animation-delay: calc(.2s *var(--i));
 }
 
 .home-sci a:hover{
@@ -129,6 +144,10 @@ body{
     letter-spacing: 1px;
     font-size: 16px;
     font-weight: 600;
+    animation: slideTop 1s ease forwards;
+    animation-delay: 2s;
+    box-shadow: 0 0 5px #0ef,
+    0 0 25px #0ef;
     
     &:hover{
       box-shadow: 0 0 5px cyan,
@@ -140,4 +159,90 @@ body{
     }
 }
 
-@keyframes slideRight
+@keyframes slideRight{
+    0%{
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+    100%{
+        transform: translate(0px);
+        opacity: 1;
+    }
+}
+
+
+@keyframes slideLeft{
+    0%{
+        transform: translate(100px);
+        opacity: 0;
+    }100%{
+        transform: translate(0px);
+        opacity: 1;
+    }
+}
+
+
+@keyframes slideTop{
+    0%{
+        transform: translateY(100px);
+        opacity: 0;
+    }100%{
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+
+@keyframes slideBottom{
+    0%{
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+}
+
+
+/* second Section started */
+
+.about{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    align-items: center;
+    gap: 1.5rem;
+  
+}
+
+.about-img img{
+    padding-bottom: 20%;
+    max-width: 630px;
+    height: auto;
+    width: 100%;
+    border-radius: 8px;
+}
+.about-text h2{
+    font-size: 60px;
+}
+
+.about-text h2 span{
+    color: #0ef;
+}
+
+.about-text h4{
+    font-size: 29px;
+    letter-spacing: 1.7;
+    font-weight: 600;
+    color: #fff;
+    margin: 15px 0 30px;
+}
+
+.about-text p {
+    color: aliceblue;
+    font-size: 20px;
+    line-height: 1.4;
+    margin-bottom: 3rem;
+}
